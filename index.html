@@ -31,10 +31,21 @@
             </section>
             <section>
                 <div class="jumbotron">
-                    <button id="play" class="btn-danger center-block">Play the Game!</button>
-                    <div id="game" class="hide">
-                        Sup Bran
-                        <button id="home" class="btn-danger center-block">Home!</button>
+                    <div id="home" class="">
+                        <button id="goGame" class="btn-danger center-block">Play the Game!</button>
+                        <button id="goInfo" class="btn-danger center-block">How to Play</button>
+
+                        <div id="info" class="text-center">
+                            <p>Click "Stop the Music!" when you know the song.<br/>Type in the
+                                name of the song!
+                            </p>
+                        </div>
+                    </div>
+                    <div id="game" class="">
+                        <button id="goHome" class="btn-danger center-block">Home!</button>
+
+
+
                     </div>
                 </div>
             </section>
@@ -61,17 +72,20 @@
         <script src="js/jquery.placeholder.js"></script>
         <script>
             $(document).ready(function(){
-                $("#play").click(function(){
-                    $("#game").addClass("show");
-                    $("#game").removeClass("hide");
-                    $("#play").addClass("hide");
-                    $("#play").removeClass("show");
+                $("#game").hide();
+                $("#home").show();
+                $("#info").hide();
+
+                $("#goGame").click(function(){
+                    $("#game").show();
+                    $("#home").hide();
                 });
-                $("#home").click(function(){
-                    $("#game").addClass("hide");
-                    $("#game").removeClass("show");
-                    $("#play").addClass("show");
-                    $("#play").removeClass("hide");
+                $("#goHome").click(function(){
+                    $("#game").hide();
+                    $("#home").show();
+                });
+                $("#goInfo").click(function(){
+                    $("#info").toggle();
                 });
             });
         </script>
