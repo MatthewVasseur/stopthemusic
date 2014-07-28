@@ -5,6 +5,8 @@
         <title>Stop the Music!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
         <!-- Loading Bootstrap -->
         <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
 
@@ -18,10 +20,30 @@
             <script src="js/html5shiv.js"></script>
             <script src="js/respond.min.js"></script>
         <![endif]-->
+
+        <link href="./index.css" rel="stylesheet">
+
     </head>
     <body>
         <div class="container">
-            <h1 class="center">Stop the Music!</h1>
+            <section>
+                <h1 class="jumbotron text-center">Stop the Music!</h1>
+            </section>
+            <section>
+                <div class="jumbotron">
+                    <button id="play" class="btn-danger center-block">Play the Game!</button>
+                    <div id="game" class="hide">
+                        Sup Bran
+                        <button id="home" class="btn-danger center-block">Home!</button>
+                    </div>
+                </div>
+            </section>
+            <section id="footer">
+                <div class="jumbotron text-center">
+                    <p class="text-muted">created by Matthew Vasseur -- Stop the Music &copy</p>
+                </div>
+            </section>
+
         </div>
         <!-- /.container -->
 
@@ -37,5 +59,21 @@
         <script src="js/flatui-radio.js"></script>
         <script src="js/jquery.tagsinput.js"></script>
         <script src="js/jquery.placeholder.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#play").click(function(){
+                    $("#game").addClass("show");
+                    $("#game").removeClass("hide");
+                    $("#play").addClass("hide");
+                    $("#play").removeClass("show");
+                });
+                $("#home").click(function(){
+                    $("#game").addClass("hide");
+                    $("#game").removeClass("show");
+                    $("#play").addClass("show");
+                    $("#play").removeClass("hide");
+                });
+            });
+        </script>
     </body>
 </html>
