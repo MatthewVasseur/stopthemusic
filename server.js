@@ -5,8 +5,8 @@ var fs = require("fs");
 var helper = require("./helper")
 var path = require("path");
 
-var port = 8888; // port of Server
-var srvURL = "localhost"; // url of Server
+var port = ; // port of Server
+var srvURL = "stop-the-music.herokuapp.com"; // url of Server
 
 // start(): initializes & starts the server
 function start() {
