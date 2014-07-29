@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Stop the Music!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+        <!-- Loading Bootstrap -->
+        <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
+
+        <!-- Loading Font Awesome -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+        <!-- Loading Flat UI -->
+        <link href="./css/flat-ui.css" rel="stylesheet">
+
+        <link rel="shortcut icon" href="./images/favicon.ico">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+        <!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+        <link href="./index.css" rel="stylesheet">
+
+    </head>
+    <body class="text-danger">
+        <div class="container">
+            <section>
+                <h1 class="jumbotron text-center">Stop the Music!</h1>
+            </section>
+            <section>
+                <div class="jumbotron">
+                    <div id="home" class="">
+                        <button id="goGame" onclick="goGame()" class="btn-danger center-block">Play the Game!</button>
+                        <button id="goInfo" onclick="goInfo()" class="btn-danger center-block">How to Play</button>
+
+                        <div id="info" class="text-center">
+                            <p>Click "Stop the Music!" when you know the song.<br/>Type in the
+                                name of the song!
+                            </p>
+                        </div>
+                    </div>
+                    <div id="game">
+                        <div class="text-center">
+                            <label id="points" class="text-info tile-title">0/0</label>
+                        </div>
+                        <div class="text-center">
+                            <div id="answer" class="input-group center-block">
+                                <input id="input" type="text" class="input-lg" placeholder="guess song name or artist"/>
+                                <button id="guess" onclick="guess()" class="btn-success">Guess</button>
+                            </div>
+                            <div id="controls" class="btn-group">
+                                <!--<button id="play" class="btn btn-info"><i class="fa fa-play-circle"></i> Play</button>-->
+                                <button id="next" class="btn btn-info"><i class="fa fa-step-forward"></i> Next</button>
+                            </div>
+                        </div>
+
+                        <button id="stop" onclick="stopMusic()" class="btn-danger center-block">Stop the Music!</button>
+
+                        <div id="api"></div>
+
+                        <div class="progress center-block" style="width:50%">
+                            <div id="position" class="progress-bar progress-bar-danger"></div>
+                        </div>
+
+                        <div class="text-center">
+                            <div id="postGuess" class="input-group center-block">
+                                <label id="label"></label>
+                            </div>
+                        </div>
+
+                        <button id="goHome" onclick="goHome()" class="btn-disabled">Home!</button>
+                    </div>
+                </div>
+            </section>
+            <section id="footer">
+                <div class="jumbotron text-center">
+                    <p class="text-muted">created by Matthew Vasseur -- Stop the Music &copy</p>
+                </div>
+            </section>
+
+        </div>
+        <!-- /.container -->
+
+        <!-- Load JS here for greater good =============================-->
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="js/jquery.ui.touch-punch.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-select.js"></script>
+        <script src="js/bootstrap-switch.js"></script>
+        <script src="js/flatui-checkbox.js"></script>
+        <script src="js/flatui-radio.js"></script>
+        <script src="js/jquery.tagsinput.js"></script>
+        <script src="js/jquery.placeholder.js"></script>
+        <script src="./jquery.rdio.min.js"></script>
+        <script src="./token.js"></script>
+        <script src="./index.js"></script>
+
+    </body>
+</html>
