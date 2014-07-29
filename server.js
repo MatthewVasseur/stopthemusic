@@ -5,7 +5,7 @@ var fs = require("fs");
 var helper = require("./helper")
 var path = require("path");
 
-var port = ; // port of Server
+var port = 5000; // port of Server
 var srvURL = "stop-the-music.herokuapp.com"; // url of Server
 
 // start(): initializes & starts the server
@@ -52,7 +52,7 @@ function start() {
     }
   }
 
-  http.createServer(onRequest).listen(port, srvURL); //physically creates server
+  http.createServer(onRequest).listen(port);//, srvURL); //physically creates server
   console.log("Server has started.\n" +
               "Listening at " + srvURL + ":" + port + "\n"); //logs creation
 }
