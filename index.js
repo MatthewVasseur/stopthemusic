@@ -12,6 +12,7 @@ function goGame() {
   $("#home").hide();
   $("#answer").hide();
   $("#stop").hide();
+  $('#controls').hide();
 
   index = 0;
   points = 0;
@@ -36,8 +37,8 @@ function initUI() {
 }
 
 function stopMusic() {
-  $('#controls').hide();
   $('#answer').show();
+  $('#stop').hide();
 }
 
 // guess(): bread and butter of the game.
@@ -46,7 +47,9 @@ function guess() {
 
   var input = $('input').val();
   $('input').val("");// clear input
-  if (input.toUpperCase() == curSong.title.toUpperCase()) {
+  if (input.toUpperCase() == curSong.title.toUpperCase() ||
+      input.toUpperCase() == curSong.artist_name.toUpperCase()) {
+
     correctAnswer(input);
     points++;
 
@@ -55,8 +58,8 @@ function guess() {
     wrongAnswer(input);
     console.log("WRONG");
   }
-  $('#points').text(points + "/" + (index+1));
 
+  $('#points').text(points + "/" + (index+1));
   $('#controls').show();
 }
 
@@ -64,14 +67,19 @@ function correctAnswer(input) {
   $('#answer').hide();
   $('#label').text("Congrats! \"" + input + "\"" + " was correct!!");
   $('#label').addClass("text-success");
+  $('#label').removeClass("text-warning");
 }
 
 function wrongAnswer(input) {
   $('#answer').hide();
   $('#label').text("Sorry! \"" + input + "\"" + " was wrong!!");
+  $('#label').removeClass("text-success");
   $('#label').addClass("text-warning");
 }
 
+function endGame() {
+  goHome();
+}
 
 // randomSongList(g): get a song list of the desired genre
 function randomSongList(genre) {
@@ -98,10 +106,12 @@ function fetchSongs(url, args) {
 
 // fetchNextSong(): fetch the next song in the playlist
 function fetchNextSong() {
+  $('#controls').hide();
+
   if (index < MAX_SONGS-1)
     playSong(allSongs[++index]);
   else
-    document.write("game over");
+    endGame();
 }
 
 // getRdioID(song): get the Rdio ID for a given song
@@ -147,12 +157,6 @@ $(document).ready(function(){
   $('#api').bind('playingTrackChanged.rdio', function(e, playingTrack, sourcePosition) {
     if (playingTrack) {
       duration = playingTrack.duration;
-      /*
-      $('#art').attr('src', playingTrack.icon);
-      $('#track').text(playingTrack.name);
-      $('#album').text(playingTrack.album);
-      $('#artist').text(playingTrack.artist);
-      */
     }
   });
 
@@ -181,10 +185,6 @@ $(document).ready(function(){
   $('#api').rdio(playback_token);
 
   // player controls
-  //  $('#play').click(function() { $('#api').rdio().play();}); // play
   $('#stop').click(function() {$('#api').rdio().pause(); }); // stop the music
-  // next song
-  $('#next').click(function() {
-    fetchNextSong();
-  });
+  $('#next').click(function() { fetchNextSong(); }); // next song
 });

@@ -44,10 +44,21 @@
                             </p>
                         </div>
                     </div>
-                    <div id="game" class="">
+                    <div id="game">
                         <div class="text-center">
                             <label id="points" class="text-info tile-title">0/0</label>
                         </div>
+                        <div class="text-center">
+                            <div id="answer" class="input-group center-block">
+                                <input id="input" type="text" class="input-lg" placeholder="guess song name or artist"/>
+                                <button id="guess" onclick="guess()" class="btn-success">Guess</button>
+                            </div>
+                            <div id="controls" class="btn-group">
+                                <!--<button id="play" class="btn btn-info"><i class="fa fa-play-circle"></i> Play</button>-->
+                                <button id="next" class="btn btn-info"><i class="fa fa-step-forward"></i> Next</button>
+                            </div>
+                        </div>
+
                         <button id="stop" onclick="stopMusic()" class="btn-danger center-block">Stop the Music!</button>
 
                         <div id="api"></div>
@@ -57,15 +68,6 @@
                         </div>
 
                         <div class="text-center">
-                            <div id="controls" class="btn-group">
-                                <!--<button id="play" class="btn btn-info"><i class="fa fa-play-circle"></i> Play</button>-->
-                                <button id="next" class="btn btn-info"><i class="fa fa-step-forward"></i> Next</button>
-                            </div>
-                            <div id="answer" class="input-group center-block">
-                                <input id="input" type="text" class="input-lg" placeholder="guess song name or artist"/>
-                                <button id="guess" onclick="guess()" class="btn-success">Guess</button>
-                            </div>
-
                             <div id="postGuess" class="input-group center-block">
                                 <label id="label"></label>
                             </div>
