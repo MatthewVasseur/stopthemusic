@@ -27,7 +27,7 @@
         <link href="./index.css" rel="stylesheet">
 
     </head>
-    <body>
+    <body class="text-danger">
         <div class="container">
             <section>
                 <h1 class="jumbotron text-center">Stop the Music!</h1>
@@ -45,16 +45,33 @@
                         </div>
                     </div>
                     <div id="game" class="">
-                        <button id="goHome" onclick="goHome()" class="btn-danger center-block">Home!</button>
+                        <div class="text-center">
+                            <label id="points" class="text-info tile-title">0/0</label>
+                        </div>
+                        <button id="stop" onclick="stopMusic()" class="btn-danger center-block">Stop the Music!</button>
 
                         <div id="api"></div>
 
-                        <div class="playControls btn-group">
-                            <button id="play" class="btn btn-info"><i class="fa fa-play-circle"></i> Play</button>
-                            <button id="pause" class="btn btn-info"><i class="fa fa-pause"></i> Pause</button>
-                            <button id="previous" class="btn btn-info"><i class="fa fa-step-backward"></i> Previous</button>
-                            <button id="next" class="btn btn-info"><i class="fa fa-step-forward"></i> Next</button>
+                        <div class="progress center-block" style="width:50%">
+                            <div id="position" class="progress-bar progress-bar-danger"></div>
                         </div>
+
+                        <div class="text-center">
+                            <div id="controls" class="btn-group">
+                                <!--<button id="play" class="btn btn-info"><i class="fa fa-play-circle"></i> Play</button>-->
+                                <button id="next" class="btn btn-info"><i class="fa fa-step-forward"></i> Next</button>
+                            </div>
+                            <div id="answer" class="input-group center-block">
+                                <input id="input" type="text" class="input-lg" placeholder="guess song name or artist"/>
+                                <button id="guess" onclick="guess()" class="btn-success">Guess</button>
+                            </div>
+
+                            <div id="postGuess" class="input-group center-block">
+                                <label id="label"></label>
+                            </div>
+                        </div>
+
+                        <button id="goHome" onclick="goHome()" class="btn-disabled">Home!</button>
                     </div>
                 </div>
             </section>

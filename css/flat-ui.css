@@ -2901,7 +2901,7 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
   background-color: #16a085;
 }
 .progress {
-  background: #ebedef;
+  background: #fff;
   border-radius: 32px;
   height: 12px;
   -webkit-box-shadow: none;
